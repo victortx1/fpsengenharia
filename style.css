@@ -1,0 +1,439 @@
+
+/* COR PRINCIPAL DO SITE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at left, #3a2f00, #000);
+  color: #fff;
+}
+
+
+
+/* RODA PE DE CIMA */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+}
+
+.logo {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* INICIAL SERVIÇOS E CONTATO */
+nav a {
+  margin: 0 15px;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+.header-buttons button {
+  margin-left: 10px;
+}
+
+/* SEJA PARECEITO FPS */
+.btn-outline {
+  background: transparent;
+  border: 1px solid #f5c400;
+  color: #f5c400;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ENTRA CONTA FPS */ 
+.btn-primary {
+  background: #f5c400;
+  border: none;
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* CENTRAL INICIO */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+.hero-buttons a {
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+/* BOTAO DE NUMERO E VER SERVIÇOS */
+.btn-phone {
+  background: #f5c400;
+  color: #000;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.btn-dark {
+  background: #222;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+}
+
+/* AVALIAÇAO PRINCIPAL SO SITE */
+.hero-image {
+  position: relative;
+}
+
+.hero-image img {
+  width: 420px;
+  border-radius: 20px;
+}
+
+.rating {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: #fff;
+  color: #000;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+/* ANIMAÇÕES SERVIÇOS DA FPS */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+[data-animate].active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.services {
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.services h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.service-card {
+  background: #111;
+  border: 1px solid #222;
+  padding: 30px;
+  border-radius: 18px;
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  border-color: #f5c400;
+}
+
+.service-card h3 {
+  margin: 15px 0;
+}
+
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.whatsapp-float /* botao flutuante do whatsapp */ { 
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #25d366;
+  color: #fff;
+  font-size: 26px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 0 20px rgba(37,211,102,0.6);
+  z-index: 999;
+}
+
+/* CONSERTOS IDENTICO AO DESIGN */
+.repairs-box {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+}
+
+/* FOTO */
+.repairs-photo img {
+  width: 380px;
+  height: 460px;
+  object-fit: cover;
+  border-radius: 28px;
+}
+
+/* TEXTO */
+.repairs-info {
+  position: relative;
+}
+
+.repairs-info::before {
+  content: "";
+  position: absolute;
+  left: -80px;
+  top: 40px;
+  width: 160px;
+  height: 320px;
+  background: url("img/eletricista-outline.png") no-repeat center;
+  background-size: contain;
+  opacity: 0.4;
+}
+
+.repairs-info h2 {
+  font-size: 40px;
+  line-height: 1.1;
+  margin-bottom: 25px;
+}
+
+.repairs-info ul {
+  list-style: none;
+}
+
+.repairs-info li {
+  font-size: 16px;
+  margin-bottom: 12px;
+  padding-left: 30px;
+  position: relative;
+}
+
+.repairs-info li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #f5c400;
+  font-weight: bold;
+}
+
+/* RESPONSIVO AMARELO TOTAL */
+@media (max-width: 900px) {
+  .repairs-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .repairs-photo img {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+  }
+
+  .repairs-info::before {
+    display: none;
+  }
+
+  .repairs-info li {
+    text-align: left;
+  }
+}
+
+.como-funciona {
+  background: #ffeb00;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.como-funciona h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #000;
+}
+
+.passos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.passo {
+  color: #000;
+}
+
+.numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 2px solid #000;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.passo h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.passo p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width: 768px) {
+  .passos {
+    grid-template-columns: 1fr;
+  }
+
+  .como-funciona {
+    padding: 20px;
+  }
+}
+
+
+
+.porque-contratar {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.como-funciona {
+  background: #ffeb00;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.como-funciona h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #000;
+}
+
+.porque-contratar h2 {
+  color: #fff;
+  font-size: 32px;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card {
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(255,255,0,0.15));
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #fff;
+}
+
+.overlay h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.overlay p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* ✨ Hover premium */
+.card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s ease;
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width: 900px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
