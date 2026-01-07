@@ -46,10 +46,10 @@ nav a:hover {
 }
 
 /* SEJA PARECEITO FPS */
-.btn-outline {
+.btn-primary {
   background: transparent;
-  border: 1px solid #f5c400;
-  color: #f5c400;
+  border: 1px solid #7c6402;
+  color: #775f00;
   padding: 8px 14px;
   border-radius: 6px;
   cursor: pointer;
@@ -194,6 +194,32 @@ nav a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+ /* ===== CARROSSEL ===== */
+
+.carrossel-track { 
+    display: flex; 
+    padding: 40px 0;
+    width: calc(250px * 12); /* qtd imagens * largura */
+    animation: scroll 25s linear infinite; 
+}
+
+.carrossel img { 
+    width: 250px; 
+    height: 180px; 
+    object-fit: cover; 
+    border-radius: 12px; 
+    margin: 0 10px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5); 
+}
+
+/* Animação infinita */
+@keyframes scroll { 
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(-50%); } 
+}
+
+
 
 .whatsapp-float /* botao flutuante do whatsapp */ { 
   position: fixed;
@@ -437,3 +463,194 @@ nav a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* roda pe do site */
+.footer {
+  background: #000;
+  color: #fff;
+  padding: 60px 20px 30px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer h4 {
+  margin-bottom: 15px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.footer ul li:hover {
+  color: #f5c400;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  font-size: 18px;
+  margin: 15px 0;
+}
+
+.social-icons i {
+  cursor: pointer;
+  color: #fff;
+}
+
+.social-icons i:hover {
+  color: #f5c400;
+}
+
+.footer-btn {
+  background: transparent;
+  border: 1px solid #f5c400;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.footer-btn:hover {
+  background: #f5c400;
+  color: #000;
+}
+
+.footer-icon {
+  width: 45px;
+  height: 45px;
+  background: #f5c400;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #222;
+  margin-top: 40px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #aaa;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-copy {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  margin-top: 20px;
+}
+
+
+/* perguntas frequentes link direto */
+
+.link-faq:link {
+  color: #ffffff;
+}
+
+.link-faq:visited {
+  color: #ffffff;
+}
+
+.link-faq:hover {
+  color: #ffee00;
+  text-decoration: underline;
+}
+
+.link-faq:active {
+  color: #ffffff;
+}
+
+/* sacetelefone link direto */
+
+li a {
+  color: #ffffff; /* amarelo */
+  text-decoration: none;
+}
+
+li a:hover {
+  color: #ffe600;
+}
+
+/* quem somos link direto */
+
+.link-quemsomos:link {
+  color: #ffffff;
+}
+
+.link-quemsomos:visited {
+  color: #ffffff;
+}
+
+.link-quemsomos:hover {
+  color: #ffee00;
+  text-decoration: underline;
+}
+
+.link-quemsomos:active {
+  color: #ffffff;
+}
+
+/* Seja parceiro FPS link direto */
+
+.link-parceirofps:link {
+  color: #ffffff;
+}
+
+.link-parceirofps:visited {
+  color: #ffffff;
+}
+
+.link-parceirofps:hover {
+  color: #ffee00;
+  text-decoration: underline;
+}
+
+.link-parceirofps:active {
+  color: #ffffff;
+}
+
+/* dicas link direto */
+
+.link-dicas:link {
+  color: #ffffff;
+}
+
+.link-dicas:visited {
+  color: #ffffff;
+}
+
+.link-dicas:hover {
+  color: #ffee00;
+  text-decoration: underline;
+}
+
+.link-dicas:active {
+  color: #ffffff;
+}
+
