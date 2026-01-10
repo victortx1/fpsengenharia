@@ -1,46 +1,159 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seja parceiro FPS</title>
+  <meta charset="UTF-8">
+  <title>Seja um Parceiro | FPS Engenharia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+    }
+
+    .parceiro {
+      padding: 80px 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      color: #FFD700;
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #FFD700;
+      margin: 50px 0 20px;
+      font-size: 28px;
+    }
+
+    .descricao {
+      max-width: 800px;
+      margin: auto;
+      font-size: 18px;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    .beneficios {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #111;
+      border-left: 5px solid #FFD700;
+      padding: 20px;
+      text-align: left;
+      font-size: 16px;
+    }
+
+    .formulario {
+      max-width: 600px;
+      margin: 40px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .formulario input,
+    .formulario textarea {
+      padding: 15px;
+      background: #111;
+      border: 1px solid #FFD700;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    .formulario textarea {
+      min-height: 120px;
+      resize: none;
+    }
+
+    .formulario button {
+      padding: 15px;
+      background: #FFD700;
+      color: #000;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
+      margin-top: 60px;
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>Seja um Parceiro FPS Engenharia</h1>
-    </header>
 
-    <main>
-        <section>
-            <h2>Benefícios de ser um parceiro FPS</h2>
-            <ul>
-                <li>Acesso a projetos exclusivos</li>
-                <li>Suporte técnico especializado</li>
-                <li>Oportunidades de networking</li>
-                <li>Descontos em serviços e produtos</li>
-            </ul>
-        </section>
+<section class="parceiro">
+  <div class="container">
 
-        <section>
-            <h2>Como se tornar um parceiro</h2>
-            <p>Para se tornar um parceiro FPS, preencha o formulário abaixo com suas informações de contato e área de interesse. Nossa equipe entrará em contato para discutir as próximas etapas.</p>
-            <form action="#" method="post">
-                <label for="name">Nome:</label><br>
-                <input type="text" id="name" name="name" required><br><br>
 
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required><br><br>
+    <h1>Seja um Parceiro FPS Engenharia</h1>
+    <p class="descricao">
+      Na FPS Engenharia acreditamos que grandes resultados nascem de boas parcerias.
+      Buscamos profissionais, empresas e prestadores de serviço que queiram crescer
+      junto conosco, criando conexões sólidas, eficientes e trabalhadoras.
+    </p>
 
-                <label for="interest">Área de Interesse:</label><br>
-                <input type="text" id="interest" name="interest" required><br><br>
+    <h2>Benefícios de ser um Parceiro FPS</h2>
 
-                <input type="submit" value="Enviar">
-            </form>
-        </section>
-    </main>
+    <div class="beneficios">
+      <div class="card">🤝 Acesso a projetos exclusivos</div>
+      <div class="card">🛠 Suporte técnico especializado</div>
+      <div class="card">🌐 Networking profissional</div>
+      <div class="card">💰 Indicações e crescimento conjunto</div>
+      <div class="card">💰 Descontos em serviços e produtos</div>
+      <div class="card">⚡ Parceria baseada em confiança e eficiência</div>
+    </div>
 
-    <footer>
-        <p>&copy; 2024 FPS Engenharia. Todos os direitos reservados.</p>
-    </footer>
+    <h2>Como se tornar um parceiro</h2>
+
+    <!-- FORMULÁRIO FUNCIONAL -->
+    <form class="formulario"
+          action="https://formsubmit.co/fpsengenharia45@gmail.com"
+          method="POST">
+
+      <input type="hidden" name="_subject" value="Nova solicitação de parceria - FPS Engenharia">
+      <input type="hidden" name="_captcha" value="false">
+
+      <input type="text" name="nome" placeholder="Nome completo" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="text" name="area" placeholder="Área de interesse ou serviço" required>
+      <textarea name="mensagem" placeholder="Conte um pouco sobre você ou sua empresa"></textarea>
+
+      <button type="submit">Enviar Solicitação</button>
+    </form>
+
+  </div>
+</section>
+
+<footer>
+  © 2024 FPS Engenharia. Todos os direitos reservados.
+</footer>
+
 </body>
 </html>

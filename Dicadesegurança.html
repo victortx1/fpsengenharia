@@ -3,29 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Dica de Segurança - FPS Engenharia</title>
+
+<style>
+    /* dicas de segurança */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* TOPO */
+.topo {
+  background: linear-gradient(135deg, #ffd400, #ffb700);
+  color: #000;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.topo h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.topo p {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* CONTEÚDO */
+.seguranca {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.seguranca-box {
+  background: #111;
+  border-left: 5px solid #ffd400;
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.seguranca-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(255, 212, 0, 0.2);
+}
+
+.seguranca-box h2 {
+  color: #ffd400;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.seguranca-box p {
+  color: #ddd;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* LISTA */
+.seguranca-box ul {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.seguranca-box ul li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* DESTAQUE */
+.destaque {
+  background: #ffd400;
+  color: #000;
+  border-left: none;
+}
+
+.destaque h2 {
+  color: #000;
+}
+
+.destaque p {
+  color: #000;
+  font-weight: 500;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .topo h1 {
+    font-size: 28px;
+  }
+
+  .topo p {
+    font-size: 16px;
+  }
+
+  .seguranca-box h2 {
+    font-size: 20px;
+  }
+
+  .seguranca-box p,
+  .seguranca-box ul li {
+    font-size: 15px;
+  }
+}
+</style>
+
 </head>
 <body>
-    <header>
-        <h1>Dicas de Segurança Elétrica</h1>
-    </header>
-    <main>
-        <article>
-            <h2>Importância da Segurança Elétrica</h2>
-            <p>A segurança elétrica é fundamental para prevenir acidentes e garantir o bem-estar de todos. Seguir práticas seguras ao lidar com eletricidade pode salvar vidas e evitar danos materiais.</p>
+    <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Dicas de Segurança Elétrica | FPS Engenharia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
 
-            <h2>Dicas Essenciais</h2>
-            <ul>
-                <li><strong>Desligue a energia:</strong> Sempre desligue a energia na fonte antes de realizar qualquer trabalho elétrico.</li>
-                <li><strong>Use equipamentos adequados:</strong> Utilize ferramentas isoladas e equipamentos de proteção individual (EPI) apropriados.</li>
-                <li><strong>Evite sobrecarga:</strong> Não sobrecarregue tomadas e circuitos elétricos para prevenir incêndios.</li>
-                <li><strong>Mantenha a área seca:</strong> Evite o contato com água ao trabalhar com eletricidade.</li>
-                <li><strong>Contrate profissionais qualificados:</strong> Para instalações e reparos complexos, sempre contrate eletricistas certificados.</li>
-            </ul>
+<body>
 
-            <h2>Conclusão</h2>
-            <p>Seguir essas dicas de segurança elétrica é essencial para proteger você, sua família e seu patrimônio. Em caso de dúvidas ou emergências, não hesite em contatar um profissional especializado.</p>
-        </article>
-    </main>
+<header class="topo">
+  <h1>Dicas de Segurança Elétrica</h1>
+  <p>Proteja sua família, seu imóvel e seus equipamentos</p>
+</header>
+
+<main>
+  <section class="seguranca">
+
+    <article class="seguranca-box">
+      <h2>Por que a Segurança Elétrica é Importante?</h2>
+      <p>
+        A segurança elétrica é essencial para evitar choques elétricos,
+        curtos-circuitos, incêndios e danos aos equipamentos. Instalações
+        feitas corretamente garantem proteção, eficiência e tranquilidade.
+      </p>
+    </article>
+
+    <article class="seguranca-box">
+      <h2>Dicas Essenciais de Segurança Elétrica</h2>
+      <ul>
+        <li><strong>Desligue a energia:</strong> Sempre desligue o disjuntor antes de realizar qualquer serviço elétrico.</li>
+        <li><strong>Evite sobrecarga:</strong> Não utilize muitos aparelhos na mesma tomada.</li>
+        <li><strong>Use disjuntores adequados:</strong> Eles protegem a instalação contra sobrecargas e curtos-circuitos.</li>
+        <li><strong>Instale DR:</strong> O dispositivo DR protege contra choques elétricos.</li>
+        <li><strong>Não faça gambiarras:</strong> Emendas mal feitas causam acidentes.</li>
+        <li><strong>Fique atento a sinais de falha:</strong> Cheiro de queimado, faíscas e tomadas quentes são alertas.</li>
+        <li><strong>Mantenha longe da água:</strong> Eletricidade e umidade não combinam.</li>
+        <li><strong>Use materiais certificados:</strong> Cabos e equipamentos devem seguir normas técnicas.</li>
+        <li><strong>Proteja crianças:</strong> Utilize protetores de tomada.</li>
+        <li><strong>Chame um profissional:</strong> Serviços complexos devem ser feitos por especialistas.</li>
+      </ul>
+    </article>
+
+    <article class="seguranca-box destaque">
+      <h2>Conte com a FPS Engenharia</h2>
+      <p>
+        Em caso de dúvidas, manutenções ou emergências elétricas,
+        conte com a <strong>FPS Engenharia</strong>.
+        Trabalhamos com segurança, qualidade e atendimento profissional.
+      </p>
+    </article>
+
+  </section>
+</main>
+
+</body>
+</html>
+
 </body>
 </html>

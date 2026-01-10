@@ -32,7 +32,7 @@ body {
 /* INICIAL SERVIÇOS E CONTATO */
 nav a {
   margin: 0 15px;
-  color: #fff;
+  color: #ffffff;
   text-decoration: none;
   opacity: 0.8;
 }
@@ -242,6 +242,7 @@ nav a:hover {
 /* CONSERTOS IDENTICO AO DESIGN */
 .repairs-box {
   display: flex;
+  padding: 2rem;
   align-items: center;
   gap: 80px;
   position: relative;
@@ -654,3 +655,138 @@ li a:hover {
   color: #ffffff;
 }
 
+/* redes sociais rodape */
+.social-container {
+  background: #000;
+  padding: 20px;
+  text-align: center;
+}
+
+.social-container p {
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  background: #fff;
+  color: #000;
+}
+
+
+
+/* Aviso de Cookies */
+.cookies {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  border-top: 3px solid #FFD700;
+  z-index: 9999;
+}
+
+.cookies-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 25px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cookies-texto {
+  max-width: 800px;
+}
+
+.cookies-texto h3 {
+  color: #FFD700;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.cookies-texto p {
+  color: #ddd;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.cookies-texto a {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cookies-texto a:hover {
+  text-decoration: underline;
+}
+
+.cookies-botoes {
+  display: flex;
+  gap: 15px;
+}
+
+.cookies-botoes button {
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-aceitar {
+  background: #FFD700;
+  color: #000;
+}
+
+.btn-aceitar:hover {
+  background: #e6c200;
+}
+
+.btn-recusar {
+  background: transparent;
+  color: #FFD700;
+  border: 2px solid #FFD700;
+}
+
+.btn-recusar:hover {
+  background: #FFD700;
+  color: #000;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .cookies-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cookies-botoes {
+    justify-content: center;
+  }
+}
+
+/* login */

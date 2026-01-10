@@ -1,36 +1,187 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perguntas Frequentes - FPS Engenharia</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perguntas Frequentes - FPS Engenharia</title>
+
+  <style>
+    /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+    }
+
+    /* FAQ */
+    .faq {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .faq h2 {
+      text-align: center;
+      color: #ffd400;
+      font-size: 36px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+    }
+
+    .faq-item {
+      background: #111;
+      border-left: 5px solid #ffd400;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(255, 212, 0, 0.15);
+    }
+
+    .faq-item h3 {
+      color: #ffd400;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .faq-item p {
+      color: #ddd;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+      .faq h2 {
+        font-size: 28px;
+      }
+
+      .faq-item h3 {
+        font-size: 18px;
+      }
+
+      .faq-item p {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    
-    <h1>Perguntas Frequentes</h1>
-    <section>
-        <h2>1. Quais serviços a FPS Engenharia oferece?</h2>
-        <p>A FPS Engenharia oferece uma ampla gama de serviços elétricos, incluindo instalações residenciais, comerciais e industriais, manutenção elétrica, projetos de eficiência energética, entre outros.</p>
-    </section>
 
-    <section>
-        <h2>2. A FPS Engenharia atende emergências 24 horas?</h2>
-        <p>Sim, a FPS Engenharia possui um serviço de atendimento emergencial disponível 24 horas por dia, 7 dias por semana.</p>
-    </section>
+<section class="faq">
+  <h2>Perguntas Frequentes</h2>
 
-    <section>
-        <h2>3. Como posso solicitar um orçamento?</h2>
-        <p>Você pode solicitar um orçamento entrando em contato conosco através do nosso telefone, WhatsApp ou preenchendo o formulário de contato em nosso site.</p>
-    </section>
+  <div class="faq-item">
+    <h3>1. Quais serviços elétricos a FPS Engenharia oferece?</h3>
+    <p>Atuamos com instalações elétricas residenciais, comerciais e industriais, manutenção preventiva e corretiva, adequação de quadros elétricos, projetos elétricos e eficiência energética.</p>
+  </div>
 
-    <section>
-        <h2>4. A FPS Engenharia oferece garantia nos serviços prestados?</h2>
-        <p>Sim, todos os serviços realizados pela FPS Engenharia contam com garantia conforme as normas vigentes e o contrato firmado.</p>
-    </section>
+  <div class="faq-item">
+    <h3>2. Vocês fazem atendimento residencial?</h3>
+    <p>Sim, realizamos serviços elétricos completos para residências, como troca de fiação, disjuntores, tomadas, iluminação e quadros de distribuição.</p>
+  </div>
 
-    <section>
-        <h2>5. Quais são as formas de pagamento aceitas?</h2>
-        <p>A FPS Engenharia aceita diversas formas de pagamento, incluindo cartão de crédito, boleto bancário e transferência bancária. Consulte-nos para mais detalhes.</p>
-    </section>
+  <div class="faq-item">
+    <h3>3. A FPS Engenharia atende empresas e indústrias?</h3>
+    <p>Sim, atendemos comércios, empresas e indústrias com soluções elétricas seguras e conforme as normas técnicas.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>4. Vocês atendem emergências elétricas?</h3>
+    <p>Sim, oferecemos atendimento emergencial 24 horas para quedas de energia, curto-circuito, disjuntores desarmando e outros problemas urgentes.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>5. Como posso solicitar um orçamento?</h3>
+    <p>Você pode solicitar um orçamento pelo WhatsApp, telefone ou através do formulário disponível em nosso site.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>6. O orçamento é gratuito?</h3>
+    <p>Sim, o orçamento é totalmente gratuito e sem compromisso.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>7. Vocês emitem nota fiscal?</h3>
+    <p>Sim, todos os serviços são realizados com emissão de nota fiscal.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>8. Os serviços possuem garantia?</h3>
+    <p>Sim, todos os serviços contam com garantia, seguindo as normas técnicas e o contrato firmado.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>9. Vocês seguem as normas da ABNT?</h3>
+    <p>Sim, todos os serviços seguem rigorosamente as normas da ABNT e padrões de segurança elétrica.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>10. Fazem troca de fiação antiga?</h3>
+    <p>Sim, realizamos substituição completa de fiação antiga para evitar riscos de curto-circuito e incêndios.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>11. Vocês instalam disjuntores e quadros elétricos?</h3>
+    <p>Sim, instalamos e organizamos quadros elétricos, disjuntores e dispositivos de proteção.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>12. Fazem aterramento elétrico?</h3>
+    <p>Sim, realizamos sistemas de aterramento conforme exigências técnicas e normas de segurança.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>13. Vocês instalam iluminação interna e externa?</h3>
+    <p>Sim, fazemos projetos e instalações de iluminação residencial, comercial e industrial.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>14. A FPS Engenharia trabalha com energia solar?</h3>
+    <p>Sim, realizamos projetos e instalações de sistemas de energia solar fotovoltaica.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>15. Vocês fazem manutenção preventiva?</h3>
+    <p>Sim, oferecemos manutenção preventiva para evitar falhas elétricas e aumentar a vida útil das instalações.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>16. Quanto tempo leva para executar um serviço?</h3>
+    <p>O prazo varia conforme o tipo de serviço, mas sempre informamos o tempo estimado antes do início.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>17. Quais formas de pagamento são aceitas?</h3>
+    <p>PIX e transferência bancária.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>18. Vocês fazem projetos elétricos?</h3>
+    <p>Sim, desenvolvemos projetos elétricos completos para obras novas e reformas.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>19. A FPS Engenharia atende quais regiões?</h3>
+    <p>Atendemos diversas regiões. Entre em contato para confirmar a disponibilidade na sua localidade.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>20. Como entrar em contato com a FPS Engenharia?</h3>
+    <p>Você pode nos chamar pelo WhatsApp, telefone ou preencher o formulário em nosso site.</p>
+  </div>
+
+</section>
 </body>
 </html>

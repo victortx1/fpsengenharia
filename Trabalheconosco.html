@@ -1,27 +1,231 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trabalhe Conosco - FPS Engenharia</title>
+  <meta charset="UTF-8">
+  <title>Trabalhe Conosco | FPS Engenharia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+<style>
+/* trabalhe conosco */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* TOPO */
+.topo {
+  background: linear-gradient(135deg, #ffd400, #ffb700);
+  color: #000;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.topo h1 {
+  font-size: 40px;
+}
+
+.topo p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* CONTEÚDO */
+.trabalhe {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.info {
+  margin-bottom: 30px;
+}
+
+.info h2 {
+  color: #ffd400;
+  margin-bottom: 10px;
+}
+
+.info p {
+  color: #ddd;
+}
+
+/* FORM */
+.formulario {
+  background: #111;
+  border-left: 5px solid #ffd400;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.formulario h2 {
+  color: #ffd400;
+  margin-bottom: 20px;
+}
+
+.formulario label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  font-size: 15px;
+}
+
+.formulario textarea {
+  resize: vertical;
+}
+
+/* LGPD */
+.lgpd {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* BOTÃO */
+button {
+  margin-top: 25px;
+  width: 100%;
+  padding: 15px;
+  background: #ffd400;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ffbf00;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .topo h1 {
+    font-size: 28px;
+  }
+}
+
+</style>
+
 </head>
+
 <body>
-    <header>
-        <h1>Trabalhe Conosco na FPS Engenharia</h1>
-    </header>
-    <main>
-        <article>
-            <h2>Junte-se à Nossa Equipe</h2>
-            <p>Na FPS Engenharia, estamos sempre em busca de talentos que queiram crescer conosco. Se você é apaixonado por engenharia elétrica e deseja fazer parte de uma equipe dinâmica e inovadora, esta é a sua chance!</p>
 
-            <h2>Vagas Disponíveis</h2>
-            <ul>
-                <li><strong>Engenheiro Eletricista:</strong> Responsável por projetos elétricos, supervisão de obras e garantia da conformidade com normas técnicas.</li>
-                <li><strong>Técnico em Eletrônica:</strong> Atuação em manutenção, instalação e suporte técnico para nossos clientes.</li>
-                <li><strong>Estagiário de Engenharia:</strong> Oportunidade para estudantes que desejam adquirir experiência prática na área.</li>
-            </ul>
+<header class="topo">
+  <h1>Trabalhe Conosco</h1>
+  <p>Envie seus dados e faça parte da FPS Engenharia</p>
+</header>
 
-            <h2>Como se Candidatar</h2>
-            <p>Envie seu currículo atualizado para nosso e-mail de recrutamento: <a href="mailto:
+<main>
+  <section class="trabalhe">
+
+    <div class="info">
+      <h2>Faça Parte da Nossa Equipe</h2>
+      <p>
+        Buscamos profissionais comprometidos, responsáveis e qualificados.
+        Preencha corretamente seus dados para análise do nosso RH.
+      </p>
+    </div>
+
+    <!-- FORMULÁRIO FORM SUBMIT -->
+    <form
+      class="formulario"
+      action="https://formsubmit.co/fpsengenharia45@gmail.com"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+
+      <!-- CONFIGURAÇÕES FORMSUBMIT -->
+      <input type="hidden" name="_subject" value="Novo currículo recebido - Trabalhe Conosco FPS Engenharia">
+      <input type="hidden" name="_autoresponse" value="Olá! Recebemos seu currículo com sucesso. Em breve nosso setor de RH fará a análise. FPS Engenharia agradece seu contato.">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+
+
+      <h2>Dados do Candidato</h2>
+
+      <label>Nome Completo *</label>
+      <input type="text" name="Nome" required>
+
+      <label>Data de Nascimento *</label>
+      <input type="date" name="Nascimento" required>
+
+      <label>Telefone / WhatsApp *</label>
+      <input type="tel" name="Telefone" required>
+
+      <label>E-mail *</label>
+      <input type="email" name="Email" required>
+
+      <label>Cidade / Estado *</label>
+      <input type="text" name="Cidade" required>
+
+      <label>Cargo Pretendido *</label>
+      <select name="Cargo" required>
+        <option value="">Selecione</option>
+        <option>Eletricista</option>
+        <option>Técnico em Elétrica</option>
+        <option>Engenheiro Eletricista</option>
+        <option>Auxiliar Elétrico</option>
+        <option>Estagiário</option>
+      </select>
+
+      <label>Tempo de Experiência *</label>
+      <select name="Experiência" required>
+        <option value="">Selecione</option>
+        <option>Sem experiência</option>
+        <option>Até 1 ano</option>
+        <option>1 a 3 anos</option>
+        <option>Mais de 3 anos</option>
+      </select>
+
+      <label>Cursos / Certificações</label>
+      <textarea name="Cursos" placeholder="NR10, NR35, Técnico, outros"></textarea>
+
+      <label>Disponibilidade</label>
+      <select name="Disponibilidade">
+        <option>Período Integral</option>
+        <option>Meio Período</option>
+        <option>Plantões</option>
+      </select>
+
+      <label>Currículo (PDF ou DOC) *</label>
+      <input type="file" name="Currículo" accept=".pdf,.doc,.docx" required>
+
+      <!-- LGPD -->
+      <div class="lgpd">
+        <input type="checkbox" required>
+        <span>
+          Autorizo o uso dos meus dados pessoais para fins de
+          recrutamento e seleção, conforme a
+          <strong>Lei Geral de Proteção de Dados (LGPD)</strong>.
+        </span>
+      </div>
+
+      <button type="submit">Enviar Currículo</button>
+
+    </form>
+
+  </section>
+</main>
+
 </body>
 </html>
