@@ -1398,3 +1398,96 @@ body::before{
     font-size:12px;
   }
 }
+/* ========================= */
+/* POPUP SAO JOAO */
+/* ========================= */
+
+.saojoao-popup{
+  position:fixed;
+  inset:0;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(6px);
+
+  z-index:999999;
+
+  animation:
+  fundoFade 5s forwards;
+}
+
+.saojoao-popup img{
+
+  width:420px;
+  max-width:85vw;
+
+  animation:
+  girarEntrar 2s ease,
+  sumirPopup 1s ease forwards;
+
+  animation-delay:
+  0s,
+  4s;
+}
+
+/* ENTRADA */
+
+@keyframes girarEntrar{
+
+  0%{
+    opacity:0;
+    transform:
+    scale(0.2)
+    rotate(-720deg);
+  }
+
+  60%{
+    opacity:1;
+    transform:
+    scale(1.1)
+    rotate(10deg);
+  }
+
+  100%{
+    opacity:1;
+    transform:
+    scale(1)
+    rotate(0deg);
+  }
+}
+
+/* SUMIR */
+
+@keyframes sumirPopup{
+
+  to{
+    opacity:0;
+    transform:
+    scale(0.8);
+  }
+}
+
+/* FUNDO */
+
+@keyframes fundoFade{
+
+  0%{
+    opacity:0;
+  }
+
+  10%{
+    opacity:1;
+  }
+
+  85%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:0;
+    visibility:hidden;
+  }
+}

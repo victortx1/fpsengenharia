@@ -21,6 +21,15 @@
 </head>
 <body>
 
+  <div class="saojoao-popup" id="saoPopup">
+
+  <img
+    src="./fotos-da-fps/fpssaojoao.jpg"
+    alt="São João FPS"
+  >
+
+</div>
+
   <div class="login-popup" id="loginPopup" style="display: none;">
     <div class="login-box">
       <span class="close-popup" onclick="fecharPopup()">×</span>
@@ -75,33 +84,64 @@
   </header>
 
   <section class="hero">
-    <div class="hero-text" data-animate>
-      <h1>Soluções Elétricas Seguras e Confiáveis</h1>
-      <p>
-        Oferecemos serviços elétricos completos para predial,
-        industrial, automação e voz e dados. Equipe qualificada, atendimento 24h
-        e garantia de qualidade.
-      </p>
 
-      <div class="hero-buttons">
-        <br><br>
-        <a class="btn-phone">(73) 98126-3235</a>
-        <br><br>
-      </div>
+  <div class="hero-text" data-animate>
+
+    <div class="junina-mini">
+      ⚡ Energia oficial do São João
     </div>
 
-    <div class="hero-image" data-animate>
-      <img src="fotos-da-fps/foto-principal.png.png" alt="Projeto FPS Engenharia">
+    <h1>
+      Iluminando o São João
+      com Segurança 
+    </h1>
 
-      <div class="rating">
-        <a href="https://g.page/r/CbxDkQ17Nzm-EAI/review" target="_blank" rel="noopener noreferrer" class="rating-link">
-          ⭐⭐⭐⭐⭐ <br>
-          <abbr title="Nos avalie no Google.">Avaliação 5.0</abbr><br>
-          <small>Google Reviews</small>
-        </a>
-      </div>
+    <p>
+      Projetos elétricos completos para residências,
+      empresas, eventos juninos, automação e instalações
+      profissionais com qualidade garantida.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="btn-phone">
+        🌽 (73) 98126-3235
+      </a>
+
+      <a href="#servico" class="btn-dark">
+        🔥 Ver Serviços
+      </a>
     </div>
-  </section>
+
+  </div>
+
+  <div class="hero-image" data-animate>
+
+    <div class="fogueira-icon">
+      🔥
+    </div>
+
+    <img src="fotos-da-fps/foto-principal.png.png" alt="Projeto FPS Engenharia">
+
+
+<div class="rating">
+  <a href="https://g.page/r/CbxDkQ17Nzm-EAI/review"
+     target="_blank"
+     rel="noopener noreferrer"
+     class="rating-link">
+
+    ⭐⭐⭐⭐⭐ <br>
+
+    <abbr title="Nos avalie no Google.">
+      Avaliação 5.0
+    </abbr><br>
+
+    <small>Google Reviews</small>
+
+  </a>
+</div>
+  </div>
+
+</section>
 
   <section class="services" id="servico">
     <h2 data-animate>Serviços FPS Engenharia</h2>
@@ -433,8 +473,6 @@
       }
     });
   </script>
-
-<script src="security.js"></script>
 
 </body>
 </html>

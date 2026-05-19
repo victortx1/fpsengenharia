@@ -21,7 +21,27 @@
 </head>
 <body>
 
-  <div class="login-popup" id="loginPopup" style="display: none;">
+
+  <!-- TEMA COPA DO MUNDO / SELEÇÃO BRASILEIRA -->
+  <div class="copa-lights" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="copa-badge" aria-hidden="true">🇧🇷 RUMO AO HEXA</div>
+
+  <div class="floating-particles" aria-hidden="true">
+    <span>⚽</span>
+    <span>🇧🇷</span>
+    <span>⭐</span>
+    <span>🏆</span>
+    <span>⚽</span>
+  </div>
+
+<div class="login-popup" id="loginPopup" style="display: none;">
     <div class="login-box">
       <span class="close-popup" onclick="fecharPopup()">×</span>
 
@@ -45,7 +65,7 @@
 
   <div class="energy-loader">
     <div class="energy-line"></div>
-    <span>FPS ENGENHARIA</span>
+    <span>FPS ENGENHARIA 🇧🇷</span>
   </div>
 
   <a href="https://wa.me/557381263235"
@@ -76,11 +96,12 @@
 
   <section class="hero">
     <div class="hero-text" data-animate>
-      <h1>Soluções Elétricas Seguras e Confiáveis</h1>
+      <span class="copa-mini">🇧🇷 ESPECIAL COPA DO MUNDO</span>
+      <h1>FPS Engenharia no clima da Seleção Brasileira</h1>
       <p>
-        Oferecemos serviços elétricos completos para predial,
-        industrial, automação e voz e dados. Equipe qualificada, atendimento 24h
-        e garantia de qualidade.
+        Energia, segurança e qualidade com a força do Brasil. A FPS Engenharia entrou
+        no clima da Copa do Mundo com atendimento campeão, serviços confiáveis e
+        aquele visual verde e amarelo da Seleção Brasileira.
       </p>
 
       <div class="hero-buttons">
@@ -92,6 +113,8 @@
 
     <div class="hero-image" data-animate>
       <img src="fotos-da-fps/foto-principal.png.png" alt="Projeto FPS Engenharia">
+      <div class="bola-icon" aria-hidden="true">⚽</div>
+      <div class="trofeu-icon" aria-hidden="true">🏆</div>
 
       <div class="rating">
         <a href="https://g.page/r/CbxDkQ17Nzm-EAI/review" target="_blank" rel="noopener noreferrer" class="rating-link">
@@ -433,8 +456,6 @@
       }
     });
   </script>
-
-<script src="security.js"></script>
 
 </body>
 </html>

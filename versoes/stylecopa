@@ -1060,341 +1060,316 @@ li a:hover {
     transform: scale(1);
   }
 }
+
+
 /* ========================= */
-/* SAO JOAO FPS */
+/* COPA DO MUNDO FPS */
 /* ========================= */
 
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-
+body {
   background:
-    radial-gradient(circle at top left,
-    rgba(255,140,0,0.12),
-    transparent 30%),
-
-    radial-gradient(circle at bottom right,
-    rgba(255,200,0,0.08),
-    transparent 30%);
-
-  pointer-events:none;
-  z-index:-1;
+    radial-gradient(circle at top left, rgba(0, 156, 59, 0.32), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(255, 223, 0, 0.22), transparent 35%),
+    linear-gradient(135deg, #00111f, #002b12, #000);
 }
 
-/* BADGE */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(120deg, rgba(0, 156, 59, 0.14), transparent 45%),
+    linear-gradient(240deg, rgba(255, 223, 0, 0.12), transparent 45%);
+  pointer-events: none;
+  z-index: -1;
+}
 
-.saojoao-badge{
-  position:fixed;
-  top:90px;
-  right:25px;
+/* BADGE COPA */
 
-  background:linear-gradient(135deg,#ffcc00,#ff7b00);
+.copa-badge {
+  position: fixed;
+  top: 90px;
+  right: 25px;
+  background: linear-gradient(135deg, #009c3b, #ffdf00);
+  color: #002776;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 900;
+  z-index: 999;
+  box-shadow: 0 0 25px rgba(255, 223, 0, 0.55);
+  animation: pulseCopa 2s infinite;
+}
 
-  color:#000;
+@keyframes pulseCopa {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
 
-  padding:12px 18px;
+/* LUZES VERDE AMARELO AZUL */
 
-  border-radius:999px;
+.copa-lights {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 20px;
+  z-index: 9999;
+  pointer-events: none;
+}
 
-  font-weight:800;
+.copa-lights span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  animation: piscarCopa 1s infinite alternate;
+}
 
-  z-index:999;
+.copa-lights span:nth-child(1) { background: #009c3b; }
+.copa-lights span:nth-child(2) { background: #ffdf00; }
+.copa-lights span:nth-child(3) { background: #002776; }
+.copa-lights span:nth-child(4) { background: #ffffff; }
+.copa-lights span:nth-child(5) { background: #00ff88; }
 
+@keyframes piscarCopa {
+  from {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(7px);
+    box-shadow: 0 0 20px currentColor;
+  }
+}
+
+/* BOLAS E TROFÉUS FLUTUANDO */
+
+.floating-particles {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-particles span {
+  position: absolute;
+  bottom: -100px;
+  font-size: 30px;
+  opacity: 0;
+  animation: copaFloat linear infinite;
+}
+
+.floating-particles span:nth-child(1) {
+  left: 10%;
+  animation-duration: 10s;
+}
+
+.floating-particles span:nth-child(2) {
+  left: 30%;
+  animation-duration: 13s;
+}
+
+.floating-particles span:nth-child(3) {
+  left: 50%;
+  animation-duration: 9s;
+}
+
+.floating-particles span:nth-child(4) {
+  left: 70%;
+  animation-duration: 12s;
+}
+
+.floating-particles span:nth-child(5) {
+  left: 90%;
+  animation-duration: 11s;
+}
+
+@keyframes copaFloat {
+  from {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.8;
+  }
+
+  to {
+    transform: translateY(-120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* TAG DO HERO */
+
+.copa-mini {
+  display: inline-block;
+  background: rgba(255, 223, 0, 0.12);
+  border: 1px solid rgba(255, 223, 0, 0.4);
+  color: #ffdf00;
+  padding: 10px 18px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* HERO COPA */
+
+.hero {
+  min-height: 85vh;
+}
+
+.hero-text h1 {
+  font-size: 58px;
+  line-height: 1.05;
+  background: linear-gradient(90deg, #ffffff, #ffdf00, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* BOTÕES */
+
+.btn-phone {
+  background: linear-gradient(135deg, #ffdf00, #009c3b);
+  color: #002776;
+  padding: 15px 28px;
+  border-radius: 14px;
+  font-weight: 900;
+  transition: 0.3s;
+  box-shadow: 0 10px 30px rgba(255, 223, 0, 0.28);
+}
+
+.btn-phone:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+.btn-dark {
+  background: #002776;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 15px 24px;
+  border-radius: 14px;
+  color: #fff;
+}
+
+/* FOTO PRINCIPAL */
+
+.hero-image img {
+  width: 480px;
+  border-radius: 28px;
+  border: 4px solid rgba(255, 223, 0, 0.45);
   box-shadow:
-  0 0 20px rgba(255,200,0,0.5);
-
-  animation:pulseBadge 2s infinite;
+    0 0 60px rgba(0, 156, 59, 0.25),
+    0 0 90px rgba(255, 223, 0, 0.12);
 }
 
-@keyframes pulseBadge{
-  0%{
-    transform:scale(1);
+.bola-icon {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-size: 60px;
+  animation: giraBola 3s linear infinite;
+  filter: drop-shadow(0 0 12px rgba(255,255,255,0.5));
+}
+
+.trofeu-icon {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  font-size: 55px;
+  animation: trofeuPulse 2s infinite;
+  filter: drop-shadow(0 0 18px rgba(255,223,0,0.6));
+}
+
+@keyframes giraBola {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes trofeuPulse {
+  0% { transform: scale(1) rotate(-5deg); }
+  50% { transform: scale(1.12) rotate(5deg); }
+  100% { transform: scale(1) rotate(-5deg); }
+}
+
+/* DETALHES VERDE E AMARELO */
+
+.service-card:hover {
+  border-color: #ffdf00;
+  box-shadow: 0 0 30px rgba(255, 223, 0, 0.2);
+}
+
+.repairs-info li::before {
+  color: #00ff88;
+}
+
+.como-funciona {
+  background: linear-gradient(135deg, #ffdf00, #009c3b);
+}
+
+.footer-btn {
+  border-color: #ffdf00;
+}
+
+.footer-btn:hover,
+.google-btn:hover {
+  background: #ffdf00;
+  color: #002776;
+}
+
+.footer-icon {
+  background: linear-gradient(135deg, #ffdf00, #009c3b);
+  color: #002776;
+}
+
+/* RESPONSIVO COPA */
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
   }
 
-  50%{
-    transform:scale(1.05);
+  .hero-text h1 {
+    font-size: 42px;
   }
 
-  100%{
-    transform:scale(1);
-  }
-}
-
-/* LUZES */
-
-.saojoao-lights{
-  position:fixed;
-  top:0;
-  left:0;
-
-  width:100%;
-
-  display:flex;
-  justify-content:space-around;
-
-  padding:10px 20px;
-
-  z-index:9999;
-
-  pointer-events:none;
-}
-
-.saojoao-lights span{
-  width:18px;
-  height:18px;
-
-  border-radius:50%;
-
-  animation:piscar 1.2s infinite alternate;
-}
-
-.saojoao-lights span:nth-child(1){ background:#ff0000; }
-.saojoao-lights span:nth-child(2){ background:#00ff66; }
-.saojoao-lights span:nth-child(3){ background:#00c3ff; }
-.saojoao-lights span:nth-child(4){ background:#ffcc00; }
-.saojoao-lights span:nth-child(5){ background:#ff6600; }
-.saojoao-lights span:nth-child(6){ background:#ff00cc; }
-.saojoao-lights span:nth-child(7){ background:#ffffff; }
-.saojoao-lights span:nth-child(8){ background:#ffe600; }
-
-@keyframes piscar{
-  from{
-    opacity:0.3;
-    transform:translateY(0px);
+  .hero-image img {
+    width: 100%;
+    max-width: 380px;
   }
 
-  to{
-    opacity:1;
-    transform:translateY(6px);
-    box-shadow:0 0 20px currentColor;
-  }
-}
-
-/* PARTICULAS */
-
-.floating-particles{
-  position:fixed;
-  inset:0;
-
-  overflow:hidden;
-
-  pointer-events:none;
-
-  z-index:0;
-}
-
-.floating-particles span{
-  position:absolute;
-
-  width:6px;
-  height:6px;
-
-  background:#ffcc00;
-
-  border-radius:50%;
-
-  opacity:0.5;
-
-  animation:particleFloat linear infinite;
-}
-
-.floating-particles span:nth-child(1){
-  left:10%;
-  animation-duration:8s;
-}
-
-.floating-particles span:nth-child(2){
-  left:25%;
-  animation-duration:12s;
-}
-
-.floating-particles span:nth-child(3){
-  left:40%;
-  animation-duration:9s;
-}
-
-.floating-particles span:nth-child(4){
-  left:55%;
-  animation-duration:14s;
-}
-
-.floating-particles span:nth-child(5){
-  left:70%;
-  animation-duration:10s;
-}
-
-.floating-particles span:nth-child(6){
-  left:85%;
-  animation-duration:11s;
-}
-
-.floating-particles span:nth-child(7){
-  left:95%;
-  animation-duration:13s;
-}
-
-@keyframes particleFloat{
-  from{
-    transform:translateY(100vh);
-    opacity:0;
+  .copa-badge {
+    top: 80px;
+    right: 15px;
+    font-size: 12px;
   }
 
-  to{
-    transform:translateY(-100px);
-    opacity:1;
-  }
-}
-
-/* MINI TAG */
-
-.junina-mini{
-  display:inline-block;
-
-  background:rgba(255,200,0,0.1);
-
-  border:1px solid rgba(255,200,0,0.4);
-
-  color:#ffd000;
-
-  padding:10px 18px;
-
-  border-radius:999px;
-
-  margin-bottom:25px;
-
-  font-weight:700;
-}
-
-/* HERO */
-
-.hero{
-  min-height:85vh;
-}
-
-.hero-text h1{
-  font-size:58px;
-  line-height:1.05;
-
-  margin-bottom:25px;
-
-  background:linear-gradient(90deg,#fff,#ffd000);
-
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-
-.hero-text p{
-  font-size:18px;
-  line-height:1.7;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:15px;
-  align-items:center;
-  flex-wrap:wrap;
-}
-
-/* BOTAO */
-
-.btn-phone{
-  background:linear-gradient(135deg,#ffd000,#ff9500);
-
-  color:#000;
-
-  padding:15px 28px;
-
-  border-radius:14px;
-
-  font-weight:800;
-
-  box-shadow:
-  0 10px 30px rgba(255,200,0,0.25);
-
-  transition:0.3s;
-}
-
-.btn-phone:hover{
-  transform:translateY(-4px) scale(1.03);
-}
-
-.btn-dark{
-  background:#111;
-
-  border:1px solid rgba(255,255,255,0.1);
-
-  padding:15px 24px;
-
-  border-radius:14px;
-
-  color:#fff;
-}
-
-/* FOTO */
-
-.hero-image{
-  position:relative;
-}
-
-.hero-image img{
-  width:480px;
-
-  border-radius:28px;
-
-  box-shadow:
-  0 0 60px rgba(255,180,0,0.15);
-}
-
-/* FOGUEIRA */
-
-.fogueira-icon{
-  position:absolute;
-
-  top:-20px;
-  right:-20px;
-
-  font-size:60px;
-
-  animation:fogo 2s infinite;
-}
-
-@keyframes fogo{
-  0%{
-    transform:rotate(-3deg) scale(1);
+  .bola-icon {
+    right: 5px;
+    font-size: 48px;
   }
 
-  50%{
-    transform:rotate(3deg) scale(1.1);
-  }
-
-  100%{
-    transform:rotate(-3deg) scale(1);
-  }
-}
-
-/* RESPONSIVO */
-
-@media(max-width:900px){
-
-  .hero{
-    flex-direction:column;
-    text-align:center;
-    gap:40px;
-  }
-
-  .hero-text h1{
-    font-size:42px;
-  }
-
-  .hero-image img{
-    width:100%;
-    max-width:380px;
-  }
-
-  .saojoao-badge{
-    top:80px;
-    right:15px;
-    font-size:12px;
+  .trofeu-icon {
+    left: 5px;
+    font-size: 46px;
   }
 }
