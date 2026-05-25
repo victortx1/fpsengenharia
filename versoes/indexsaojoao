@@ -21,6 +21,24 @@
 </head>
 <body>
 
+  <!-- BANDEIRINHAS -->
+<div class="bandeirinhas">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<!-- ESTRELAS -->
+<div class="estrelas">
+  <span>⭐</span>
+  <span>⚽</span>
+  <span>🇧🇷</span>
+  <span>⭐</span>
+</div>
+
   <div class="saojoao-popup" id="saoPopup">
 
   <img
@@ -115,7 +133,7 @@
   </div>
 
   <div class="hero-image" data-animate>
-
+<div class="copa-glow"></div>
     <div class="fogueira-icon">
       🔥
     </div>

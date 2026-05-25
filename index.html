@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>FPS Engenharia1</title>
+  <title>FPS Engenharia — Energia da Copa 2026</title>
   <link rel="icon" type="image/png" href="./fotos-da-fps/faviconffppss.png">
   <meta name="description" content="FPS Engenharia - soluções em engenharia, energia e tecnologia. Conheça nosso site oficial.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,172 +16,309 @@
     gtag('config', 'G-PQKTP9Q79F');
   </script>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;600;700;900&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style-copa.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
+  <!-- CURSOR PERSONALIZADO -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-trail" id="cursorTrail"></div>
+
+  <!-- LOADING SCREEN -->
+  <div class="loader-screen" id="loaderScreen">
+    <div class="loader-bg"></div>
+    <div class="loader-content">
+      <div class="loader-trophy">🏆</div>
+      <div class="loader-logo">FPS<span>ENGENHARIA</span></div>
+      <div class="loader-bar-wrap">
+        <div class="loader-bar" id="loaderBar"></div>
+      </div>
+      <div class="loader-text" id="loaderText">Carregando energia...</div>
+    </div>
+    <canvas class="loader-particles" id="loaderCanvas"></canvas>
+  </div>
+
+  <!-- POPUP SÃO JOÃO -->
+  <div class="saojoao-popup" id="saoPopup">
+    <img src="./fotos-da-fps/fpssaojoao.jpg" alt="São João FPS">
+  </div>
+
+  <!-- POPUP LOGIN -->
   <div class="login-popup" id="loginPopup" style="display: none;">
     <div class="login-box">
       <span class="close-popup" onclick="fecharPopup()">×</span>
-
-      <h2>🚀 Entre para continuar</h2>
-      <p>
-        Crie sua conta grátis com o Google e tenha acesso completo aos serviços da
-        <strong>FPS Engenharia</strong>.
-      </p>
-
+      <div class="login-trophy">🏆</div>
+      <h2>Entre para continuar</h2>
+      <p>Crie sua conta grátis com o Google e tenha acesso completo aos serviços da <strong>FPS Engenharia</strong>.</p>
       <button class="google-login-btn" type="button" onclick="registrarLoginGoogle()">
         <i class="fab fa-google"></i> Entrar com Google
       </button>
     </div>
   </div>
 
-  <script>
-    window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
-    };
-  </script>
+  <!-- CAMPO DE PARTÍCULAS (CANVAS GLOBAL) -->
+  <canvas id="particleCanvas" class="particle-canvas"></canvas>
 
-  <div class="energy-loader">
-    <div class="energy-line"></div>
-    <span>FPS ENGENHARIA</span>
+  <!-- RAIOS DE ESTÁDIO -->
+  <div class="stadium-rays" aria-hidden="true">
+    <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+    <div class="ray"></div><div class="ray"></div><div class="ray"></div>
+    <div class="ray"></div><div class="ray"></div>
   </div>
 
+  <!-- LUZES TORCIDA (PONTOS) -->
+  <div class="crowd-lights" aria-hidden="true" id="crowdLights"></div>
+
+  <!-- BOTÃO WHATSAPP FLUTUANTE -->
   <a href="https://wa.me/557381263235"
      class="whatsapp-float"
      target="_blank"
      rel="noopener noreferrer"
      onclick="registrarCliqueWhatsApp()">
-    <abbr title="Fale conosco no WhatsApp.">💬</abbr>
+    <abbr title="Fale conosco no WhatsApp."><i class="fab fa-whatsapp"></i></abbr>
   </a>
 
-  <header class="header">
-    <div class="logo">
-      ⚡ <span>FPSENGENHARIA</span>
+  <!-- ======================== HEADER ======================== -->
+  <header class="header" id="mainHeader">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">FPS<em>ENGENHARIA</em></span>
+      </div>
+
+      <nav class="nav">
+        <a href="#servico" class="nav-link"><span>Serviços</span></a>
+        <a href="#galeria" class="nav-link"><span>Galeria</span></a>
+        <a href="#footer" class="nav-link"><span>Contato</span></a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-glass" type="button" onclick="registrarLoginGoogle()">
+          <i class="fab fa-google"></i> <span>Entrar</span>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
 
-    <nav>
-      <a href="#servico">Serviços</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#footer">Contato</a>
-    </nav>
-
-    <div class="header-buttons">
-      <button class="footer-btn google-btn" type="button" onclick="registrarLoginGoogle()">
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#servico" onclick="closeMobileNav()">Serviços</a>
+      <a href="#galeria" onclick="closeMobileNav()">Galeria</a>
+      <a href="#footer" onclick="closeMobileNav()">Contato</a>
+      <button class="btn-glass" type="button" onclick="registrarLoginGoogle(); closeMobileNav()">
         <i class="fab fa-google"></i> Entrar com Google
       </button>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-text" data-animate>
-      <h1>Soluções Elétricas Seguras e Confiáveis</h1>
-      <p>
-        Oferecemos serviços elétricos completos para predial,
-        industrial, automação e voz e dados. Equipe qualificada, atendimento 24h
-        e garantia de qualidade.
-      </p>
+  <!-- ======================== HERO ======================== -->
+  <section class="hero" id="hero">
+    <!-- CAMPO DE GRAMA ANIMADO -->
+    <div class="grass-field" aria-hidden="true">
+      <div class="grass-stripe"></div><div class="grass-stripe"></div>
+      <div class="grass-stripe"></div><div class="grass-stripe"></div>
+      <div class="grass-stripe"></div><div class="grass-stripe"></div>
+    </div>
 
-      <div class="hero-buttons">
-        <br><br>
-        <a class="btn-phone">(73) 98126-3235</a>
-        <br><br>
+    <!-- FUMAÇA -->
+    <div class="smoke-wrap" aria-hidden="true">
+      <div class="smoke s1"></div>
+      <div class="smoke s2"></div>
+      <div class="smoke s3"></div>
+    </div>
+
+    <!-- BOLAS FLUTUANDO -->
+    <div class="floating-balls" aria-hidden="true">
+      <div class="ball b1">⚽</div>
+      <div class="ball b2">⚽</div>
+      <div class="ball b3">⚽</div>
+    </div>
+
+    <!-- BANDEIRAS -->
+    <div class="hero-flags" aria-hidden="true">
+      <div class="flag-item">🇧🇷</div>
+      <div class="flag-item">🇧🇷</div>
+      <div class="flag-item">🇧🇷</div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-text" data-animate>
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          ⚡ ENERGIA OFICIAL DA COPA 2026
+        </div>
+
+        <h1 class="hero-title">
+          <span class="title-line" data-text="ILUMINANDO">ILUMINANDO</span>
+          <span class="title-line gold" data-text="O BRASIL">O BRASIL</span>
+          <span class="title-line small">COM SEGURANÇA</span>
+        </h1>
+
+        <p class="hero-desc">
+          Projetos elétricos completos para residências, empresas, eventos, automação e instalações profissionais — com a energia de quem joga na primeira divisão.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn-hero-primary magnetic">
+            <span class="btn-glow"></span>
+            📞 (73) 98126-3235
+          </a>
+          <a href="#servico" class="btn-hero-secondary magnetic">
+            <span>Ver Serviços</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num" data-count="500">0</span>+
+            <span class="stat-label">Projetos</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-count="5">0</span>.0
+            <span class="stat-label">Google</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-count="90">0</span>d
+            <span class="stat-label">Garantia</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" data-animate>
+        <div class="visual-ring ring1" aria-hidden="true"></div>
+        <div class="visual-ring ring2" aria-hidden="true"></div>
+        <div class="visual-ring ring3" aria-hidden="true"></div>
+        <div class="visual-trophy-bg" aria-hidden="true">🏆</div>
+        <img src="fotos-da-fps/foto-principal.png.png" alt="FPS Engenharia" class="hero-img">
+        <div class="hero-rating">
+          <a href="https://g.page/r/CbxDkQ17Nzm-EAI/review" target="_blank" rel="noopener noreferrer">
+            <div class="rating-stars">⭐⭐⭐⭐⭐</div>
+            <div class="rating-text">Avaliação 5.0</div>
+            <div class="rating-sub">Google Reviews</div>
+          </a>
+        </div>
       </div>
     </div>
 
-    <div class="hero-image" data-animate>
-      <img src="fotos-da-fps/foto-principal.png.png" alt="Projeto FPS Engenharia">
-
-      <div class="rating">
-        <a href="https://g.page/r/CbxDkQ17Nzm-EAI/review" target="_blank" rel="noopener noreferrer" class="rating-link">
-          ⭐⭐⭐⭐⭐ <br>
-          <abbr title="Nos avalie no Google.">Avaliação 5.0</abbr><br>
-          <small>Google Reviews</small>
-        </a>
-      </div>
+    <!-- SCROLL INDICATOR -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-dot"></div>
     </div>
   </section>
 
+  <!-- ======================== SERVICES ======================== -->
   <section class="services" id="servico">
-    <h2 data-animate>Serviços FPS Engenharia</h2>
+    <div class="section-header" data-animate>
+      <div class="section-tag">🏆 NOSSOS SERVIÇOS</div>
+      <h2 class="section-title">O QUE A <span class="gold-text">FPS</span> FAZ</h2>
+      <p class="section-sub">Soluções completas para cada jogo da sua vida elétrica</p>
+    </div>
 
     <div class="services-grid">
       <div class="service-card" data-animate>
-        🏢
+        <div class="card-glow"></div>
+        <div class="card-icon">🏢</div>
         <h3>Elétrica Predial</h3>
-        <p>Soluções completas para condomínios e empresas.</p>
+        <p>Soluções completas para condomínios e empresas com padrão internacional.</p>
+        <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
       </div>
 
       <div class="service-card" data-animate>
-        🏭
+        <div class="card-glow"></div>
+        <div class="card-icon">🏭</div>
         <h3>Elétrica Industrial</h3>
-        <p>Projetos e manutenção industrial especializada.</p>
+        <p>Projetos e manutenção industrial especializada para máxima performance.</p>
+        <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
       </div>
 
       <div class="service-card" data-animate>
-        🖥⚙
+        <div class="card-glow"></div>
+        <div class="card-icon">🖥️⚙️</div>
         <h3>Automação</h3>
-        <p>Tecnologia em automação para aumentar produtividade e controle.</p>
+        <p>Tecnologia de ponta em automação para aumentar produtividade e controle.</p>
+        <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
       </div>
 
       <div class="service-card" data-animate>
-        📞💻
-        <h3>Voz e dados</h3>
-        <p>Infraestrutura de voz e dados para comunicação segura e eficiente.</p>
+        <div class="card-glow"></div>
+        <div class="card-icon">📡💻</div>
+        <h3>Voz e Dados</h3>
+        <p>Infraestrutura de comunicação segura e eficiente para o seu negócio.</p>
+        <div class="card-arrow"><i class="fas fa-arrow-right"></i></div>
       </div>
     </div>
   </section>
 
+  <!-- ======================== GALERIA ======================== -->
   <section class="carrossel" id="galeria">
-    <div class="carrossel-track">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.30_d7eb0656.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 19.00.34_b70993a9.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 19.00.09_0d937c57.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 18.59.42_9411d4ae.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 18.59.13_7c194b2f.jpg" alt="">
-      <img src="fotos-da-fps/ChatGPT Image 7 de jan. de 2026, 18_41_01.png" alt="">
-      <img src="fotos-da-fps/ChatGPT Image 7 de jan. de 2026, 18_39_12.png" alt="">
-      <img src="fotos-da-fps/ChatGPT Image 7 de jan. de 2026, 18_43_11.png" alt="">
-      <img src="fotos-da-fps/ChatGPT Image 7 de jan. de 2026, 18_44_52.png" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 18.59.27_afc639ce.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 19.00.51_be6305bf.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 19.01.42_05e7304b.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 18.58.56_160de768.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.33_25fba686.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.33_2ad9f040.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.32_e20fc95c.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.32_bf3b7c42.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.32_aaa490f2.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.31_c06a6ae8.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.31_87ca7597.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.30_23c98614.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-18 à(s) 19.55.57_077653f5.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-15 à(s) 18.40.54_1814fcf3.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-15 à(s) 18.39.54_fb6c6cf6.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-12 à(s) 15.34.08_9826a563.jpg" alt="">
-      <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-02 à(s) 10.17.45_2f21f602.jpg" alt="">
-      <img src="fotos-da-fps/foto-principal.png.png" alt="">
-      <img src="fotos-da-fps/Captura de tela 2025-10-09 201917.png" alt="">
-      <img src="fotos-da-fps/2401.jpeg" alt="">
-      <img src="fotos-da-fps/2402.jpeg" alt="">
-      <img src="fotos-da-fps/2403.jpeg" alt="">
-      <img src="fotos-da-fps/2404.jpeg" alt="">
-      <img src="fotos-da-fps/2405.jpeg" alt="">
-      <img src="fotos-da-fps/2406.jpeg" alt="">
-      <img src="fotos-da-fps/2407.jpeg" alt="">
-      <img src="fotos-da-fps/2408.jpeg" alt="">
+    <div class="section-header" data-animate>
+      <div class="section-tag">📸 GALERIA</div>
+      <h2 class="section-title">NOSSOS <span class="gold-text">PROJETOS</span></h2>
+    </div>
+    <div class="carrossel-wrapper">
+      <div class="carrossel-track" id="carrosselTrack">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.30_d7eb0656.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 19.00.34_b70993a9.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 19.00.09_0d937c57.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 18.59.42_9411d4ae.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 18.59.13_7c194b2f.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/ChatGPT Image 7 de jan. de 2026, 18_41_01.png" alt="Projeto FPS">
+        <img src="fotos-da-fps/ChatGPT Image 7 de jan. de 2026, 18_39_12.png" alt="Projeto FPS">
+        <img src="fotos-da-fps/ChatGPT Image 7 de jan. de 2026, 18_43_11.png" alt="Projeto FPS">
+        <img src="fotos-da-fps/ChatGPT Image 7 de jan. de 2026, 18_44_52.png" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 18.59.27_afc639ce.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 19.00.51_be6305bf.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 19.01.42_05e7304b.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 18.58.56_160de768.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.33_25fba686.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.33_2ad9f040.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.32_e20fc95c.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.32_bf3b7c42.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.32_aaa490f2.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.31_c06a6ae8.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.31_87ca7597.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.30_23c98614.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-18 à(s) 19.55.57_077653f5.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-15 à(s) 18.40.54_1814fcf3.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-15 à(s) 18.39.54_fb6c6cf6.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-12 à(s) 15.34.08_9826a563.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-02 à(s) 10.17.45_2f21f602.jpg" alt="Projeto FPS">
+        <img src="fotos-da-fps/foto-principal.png.png" alt="Projeto FPS">
+        <img src="fotos-da-fps/Captura de tela 2025-10-09 201917.png" alt="Projeto FPS">
+        <img src="fotos-da-fps/2401.jpeg" alt="Projeto FPS">
+        <img src="fotos-da-fps/2402.jpeg" alt="Projeto FPS">
+        <img src="fotos-da-fps/2403.jpeg" alt="Projeto FPS">
+        <img src="fotos-da-fps/2404.jpeg" alt="Projeto FPS">
+        <img src="fotos-da-fps/2405.jpeg" alt="Projeto FPS">
+        <img src="fotos-da-fps/2406.jpeg" alt="Projeto FPS">
+        <img src="fotos-da-fps/2407.jpeg" alt="Projeto FPS">
+        <img src="fotos-da-fps/2408.jpeg" alt="Projeto FPS">
+      </div>
     </div>
   </section>
 
+  <!-- ======================== CONSERTOS ======================== -->
   <section class="repairs-exact">
     <div class="repairs-box" data-animate>
       <div class="repairs-photo">
-        <img src="fotos-da-fps/Captura de tela 2025-10-09 201917.png" alt="Eletricista em serviço">
+        <div class="photo-frame">
+          <img src="fotos-da-fps/Captura de tela 2025-10-09 201917.png" alt="Eletricista em serviço">
+          <div class="photo-badge">✔ Qualidade garantida</div>
+        </div>
       </div>
 
       <div class="repairs-info">
-        <h2>Consertos<br>disponíveis</h2>
+        <div class="section-tag">🔧 CONSERTOS</div>
+        <h2>Consertos<br><span class="gold-text">disponíveis</span></h2>
         <ul>
           <li>Troca de lâmpadas</li>
           <li>Luminária e reator eletrônico</li>
@@ -191,143 +328,155 @@
           <li>Campainha</li>
           <li>Sensor de presença</li>
         </ul>
+        <a href="https://wa.me/557381263235" class="btn-cta magnetic" target="_blank" rel="noopener noreferrer">
+          Solicitar serviço <i class="fas fa-arrow-right"></i>
+        </a>
       </div>
     </div>
   </section>
 
+  <!-- ======================== COMO FUNCIONA ======================== -->
   <section class="como-funciona">
-    <h2>Como funciona?</h2>
+    <div class="section-header" data-animate>
+      <div class="section-tag">⚡ PROCESSO</div>
+      <h2 class="section-title">COMO <span class="gold-text">FUNCIONA</span></h2>
+    </div>
 
     <div class="passos">
-      <div class="passo">
-        <span class="numero">1</span>
+      <div class="passo" data-animate>
+        <div class="passo-num">01</div>
+        <div class="passo-icon">📅</div>
         <h3>Agendamento</h3>
-        <p>Escolha a data e o horário desejado.</p>
+        <p>Escolha a data e o horário desejado via WhatsApp.</p>
+        <div class="passo-line"></div>
       </div>
 
-      <div class="passo">
-        <span class="numero">2</span>
-        <h3>Aprovação</h3>
-        <p>Visita do prestador até sua casa para avaliar o problema.</p>
+      <div class="passo" data-animate>
+        <div class="passo-num">02</div>
+        <div class="passo-icon">🔍</div>
+        <h3>Visita Técnica</h3>
+        <p>Nosso especialista vai até você para avaliar o problema.</p>
+        <div class="passo-line"></div>
       </div>
 
-      <div class="passo">
-        <span class="numero">3</span>
-        <h3>Execução do serviço</h3>
-        <p>Realização do serviço com qualidade e preço justo.</p>
+      <div class="passo" data-animate>
+        <div class="passo-num">03</div>
+        <div class="passo-icon">⚡</div>
+        <h3>Execução</h3>
+        <p>Serviço realizado com qualidade, segurança e precisão.</p>
+        <div class="passo-line"></div>
       </div>
 
-      <div class="passo">
-        <span class="numero">4</span>
-        <h3>Aprovação do pagamento</h3>
-        <p>Após a realização do serviço, é efetuada a cobrança do valor.</p>
+      <div class="passo" data-animate>
+        <div class="passo-num">04</div>
+        <div class="passo-icon">✅</div>
+        <h3>Pagamento</h3>
+        <p>Cobrança apenas após conclusão aprovada pelo cliente.</p>
       </div>
     </div>
   </section>
 
+  <!-- ======================== POR QUE CONTRATAR ======================== -->
   <section class="porque-contratar">
-    <h2>Por que contratar?</h2>
+    <div class="section-header" data-animate>
+      <div class="section-tag">🏆 DIFERENCIAIS</div>
+      <h2 class="section-title">POR QUE <span class="gold-text">CONTRATAR</span></h2>
+    </div>
 
     <div class="cards">
-      <div class="card">
+      <div class="card" data-animate>
         <img src="fotos-da-fps/Captura de tela 2025-10-09 201917.png" alt="Profissionais qualificados">
         <div class="overlay">
+          <div class="overlay-icon">🏅</div>
           <h3>Profissionais qualificados</h3>
-          <p>Conte com a segurança e competência de um profissional treinado e uniformizado.</p>
+          <p>Segurança e competência de um profissional treinado e uniformizado.</p>
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" data-animate>
         <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-19 à(s) 18.17.30_23c98614.jpg" alt="Garantia">
         <div class="overlay">
-          <h3>Garantia</h3>
-          <p>Garantia de até 90 dias após a realização do serviço.</p>
+          <div class="overlay-icon">🛡️</div>
+          <h3>Garantia de 90 dias</h3>
+          <p>Garantia real após a realização de cada serviço prestado.</p>
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" data-animate>
         <img src="fotos-da-fps/Imagem do WhatsApp de 2025-09-27 à(s) 18.59.13_7c194b2f.jpg" alt="Clientes satisfeitos">
         <div class="overlay">
+          <div class="overlay-icon">⭐</div>
           <h3>Clientes satisfeitos</h3>
-          <p>Serviços realizados com sucesso, com total segurança.</p>
+          <p>Nota 5.0 no Google com centenas de clientes atendidos.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="footer-container" id="footer">
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer" id="footer">
+    <div class="footer-glow" aria-hidden="true"></div>
+
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">FPS<em>ENGENHARIA</em></span>
+        </div>
+        <p>Energia, tecnologia e segurança para o seu projeto — com a garra da Seleção Brasileira.</p>
+      </div>
 
       <div class="footer-col">
         <h4>Links Rápidos</h4>
         <ul>
-          <li><a href="perguntas.html" class="link-faq">Perguntas frequentes</a></li>
+          <li><a href="perguntas.html">Perguntas frequentes</a></li>
           <li><a href="https://wa.me/557381263235?text=Olá,%20gostaria%20de%20falar%20com%20o%20SAC%20da%20FPS" target="_blank" rel="noopener noreferrer">SAC e telefones</a></li>
           <li><a href="https://wa.me/557381263235?text=Olá,%20gostaria%20de%20falar%20com%20a%20FPS" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
           <li><a href="https://g.page/r/CbxDkQ17Nzm-EAI/review" target="_blank" rel="noopener noreferrer">Endereços</a></li>
-          <li><a href="https://wa.me/557381263235?text=Olá,%20gostaria%20de%20falar%20com%20a%20FPS" target="_blank" rel="noopener noreferrer">FPS em um clique</a></li>
-          <li><a href="PolíticadePrivacidade.html" class="link-faq">Política de Privacidade</a></li>
-          <li><a href="termosdeuso.html" class="link-faq">Termos de Uso</a></li>
+          <li><a href="PolíticadePrivacidade.html">Política de Privacidade</a></li>
+          <li><a href="termosdeuso.html">Termos de Uso</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h4>Sobre a FPS</h4>
         <ul>
-          <li><a href="quemsomos.html" class="link-quemsomos">Quem somos</a></li>
-          <li><a href="Sejaparceiro.html" class="link-parceirofps">Seja parceiro FPS</a></li>
-          <li><a href="Dicadesegurança.html" class="link-dicas">Dicas de segurança</a></li>
-          <li><a href="Trabalheconosco.html" class="link-trabalheconosco">Trabalhe conosco</a></li>
+          <li><a href="quemsomos.html">Quem somos</a></li>
+          <li><a href="Sejaparceiro.html">Seja parceiro FPS</a></li>
+          <li><a href="Dicadesegurança.html">Dicas de segurança</a></li>
+          <li><a href="Trabalheconosco.html">Trabalhe conosco</a></li>
         </ul>
       </div>
 
-      <div class="social-container">
-        <p>Acompanhe a FPS nas redes sociais</p>
-
+      <div class="footer-social">
+        <h4>Siga a FPS</h4>
         <div class="social-icons">
-          <a href="https://www.facebook.com/profile.php?id=61581653380737" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/fps.engenharia1?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/fps-engenharia-a16332397/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://youtube.com/@fpseletrica?si=7RQKZPelhBSvaSt7" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-          <a href="https://www.tiktok.com/@fpsengenharia1?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61581653380737" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/fps.engenharia1" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/fps-engenharia-a16332397/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://youtube.com/@fpseletrica" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.tiktok.com/@fpsengenharia1" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
         </div>
-      </div>
-
-      <div class="header-buttons">
-        <button class="footer-btn google-btn" type="button" onclick="registrarLoginGoogle()">
+        <button class="btn-glass footer-google-btn" type="button" onclick="registrarLoginGoogle()">
           <i class="fab fa-google"></i> Entrar com Google
         </button>
-
-        <div class="footer-icon">⚡</div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <div></div>
-      <div></div>
+      <p>© 2026 FPS Engenharia. Todos os direitos reservados</p>
+      <div class="footer-copa">⚽ Copa do Mundo 2026 🏆</div>
     </div>
-
-    <p class="footer-copy">
-      © 2026 FPSengenharia. Todos os direitos reservados
-    </p>
   </footer>
 
+  <!-- COOKIES -->
   <div class="cookies" id="cookies">
     <div class="cookies-container">
       <div class="cookies-texto">
         <h3>🍪 Utilizamos Cookies</h3>
-        <p>
-          A <strong>FPS Engenharia</strong> utiliza cookies e tecnologias semelhantes para
-          melhorar a sua experiência de navegação, analisar o tráfego do site e oferecer
-          conteúdos personalizados, em conformidade com a Lei Geral de Proteção de Dados (LGPD).
-          Ao clicar em <strong>“Aceitar”</strong>, você concorda com o uso desses cookies.
-        </p>
-        <p>
-          Para mais informações, consulte nossa
-          <a href="PolíticadePrivacidade.html">Política de Privacidade</a>.
-        </p>
+        <p>A <strong>FPS Engenharia</strong> utiliza cookies para melhorar sua experiência de navegação, em conformidade com a LGPD. Ao clicar em <strong>"Aceitar"</strong>, você concorda com o uso desses cookies.</p>
+        <p>Consulte nossa <a href="PolíticadePrivacidade.html">Política de Privacidade</a>.</p>
       </div>
-
       <div class="cookies-botoes">
         <button class="btn-recusar" onclick="recusarCookies()">Recusar</button>
         <button class="btn-aceitar" onclick="aceitarCookies()">Aceitar</button>
@@ -335,106 +484,46 @@
     </div>
   </div>
 
+  <!-- SCRIPTS -->
   <script>
-    const cookiesBox = document.getElementById("cookies");
+    window.onbeforeunload = function () { window.scrollTo(0, 0); };
 
-    if (localStorage.getItem("cookiesFPS") && cookiesBox) {
-      cookiesBox.style.display = "none";
-    }
+    const cookiesBox = document.getElementById("cookies");
+    if (localStorage.getItem("cookiesFPS") && cookiesBox) cookiesBox.style.display = "none";
 
     function aceitarCookies() {
       localStorage.setItem("cookiesFPS", "aceito");
       if (cookiesBox) cookiesBox.style.display = "none";
     }
-
     function recusarCookies() {
       localStorage.setItem("cookiesFPS", "recusado");
       if (cookiesBox) cookiesBox.style.display = "none";
     }
-  </script>
-
-  <script type="module" src="firebase.js"></script>
-  <script type="module" src="auth.js"></script>
-
-  <script src="script.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-  <script>
-    function registrarLoginGoogle() {
-      if (typeof gtag === "function") {
-        gtag('event', 'login_google', {
-          event_category: 'login',
-          event_label: 'botao_google'
-        });
-      }
-
-      if (typeof loginGoogle === "function") {
-        loginGoogle();
-      } else {
-        console.warn("Função loginGoogle() não encontrada.");
-      }
-    }
-
-    function registrarCliqueWhatsApp() {
-      if (typeof gtag === "function") {
-        gtag('event', 'clique_whatsapp', {
-          event_category: 'engajamento',
-          event_label: 'botao_whatsapp_flutuante'
-        });
-      }
-    }
-
     function fecharPopup() {
       const popup = document.getElementById("loginPopup");
       if (popup) popup.style.display = "none";
       localStorage.setItem("popupLoginFPS", "true");
     }
-
-    window.addEventListener('load', () => {
-      const loader = document.querySelector('.energy-loader');
-      const popup = document.getElementById("loginPopup");
-      const jaCarregou = sessionStorage.getItem('fpsLoaderJaMostrado');
-      const jaViuPopup = localStorage.getItem("popupLoginFPS");
-
-      if (jaCarregou) {
-        if (loader) loader.remove();
-
-        if (!jaViuPopup && popup) {
-          setTimeout(() => {
-            popup.style.display = "flex";
-          }, 400);
-        }
-        return;
+    function registrarLoginGoogle() {
+      if (typeof gtag === "function") {
+        gtag('event', 'login_google', { event_category: 'login', event_label: 'botao_google' });
       }
-
-      sessionStorage.setItem('fpsLoaderJaMostrado', 'true');
-
-      gsap.timeline()
-        .to('.energy-line', { duration: 1.8 })
-        .to('.energy-loader', {
-          opacity: 0,
-          duration: 0.8,
-          ease: 'power2.out',
-          onComplete: () => {
-            if (loader) loader.remove();
-          }
-        })
-        .from('.header', {
-          opacity: 0,
-          y: 80,
-          duration: 1.2,
-          ease: 'power4.out'
-        }, '-=0.4');
-
-      if (!jaViuPopup && popup) {
-        setTimeout(() => {
-          popup.style.display = "flex";
-        }, 2600);
+      if (typeof loginGoogle === "function") loginGoogle();
+      else document.getElementById("loginPopup").style.display = "flex";
+    }
+    function registrarCliqueWhatsApp() {
+      if (typeof gtag === "function") {
+        gtag('event', 'clique_whatsapp', { event_category: 'engajamento', event_label: 'botao_whatsapp_flutuante' });
       }
-    });
+    }
+    function closeMobileNav() {
+      document.getElementById("mobileNav").classList.remove("open");
+      document.getElementById("hamburger").classList.remove("active");
+    }
   </script>
 
-<script src="security.js"></script>
-
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="auth.js"></script>
+  <script src="script-copa.js"></script>
 </body>
 </html>
